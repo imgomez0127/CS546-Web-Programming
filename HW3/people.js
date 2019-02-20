@@ -42,12 +42,16 @@ let getPersonById = async function (id) {
 }
 
 let findPerson = function (firstName,lastName,peopleArr){
+	let foundPerson = undefined;
 	peopleArr.forEach(function(person){
 		if(personToName(person) === firstName + " " + lastName){
-			return person;
+			foundPerson =  person;
 		}
 	});
-	throw "Person not found";
+	if(foundPerson == undefined){
+		throw "Person not found";
+	}
+	return foundPerson;
 }
 
 let lexIndex = async function (index){

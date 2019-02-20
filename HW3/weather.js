@@ -5,12 +5,18 @@ let getWeather = async function (){
 	return data;
 }
 let findRegion = function(zip,weatherArr){
+	let foundRegion = undefined;
 	weatherArr.forEach(function(region){
 		if(region["zip"] === zip){
-			return region;
+			foundRegion = region;
 		}
 	});
+	if(foundRegion === undefined){
 		throw "Location could not be found";
+	}
+	else{
+		return foundRegion;
+	}
 }
 let shouldTheyGoOutside = async function(firstName,lastName){
 	try{
@@ -22,7 +28,12 @@ let shouldTheyGoOutside = async function(firstName,lastName){
 		let person = peopleMod.findPerson(firstName,lastName,people); 			
 		let region = findRegion(person["zip"],weatherArr); 
 		if(region["temp"] >= 34){
+			console.log(`Yes, ${firstName} should go outside.`);
 			return `Yes, ${firstName} should go outside.`;
+		}
+		else{
+			console.log(`No, ${firstName} should not go outside.`);
+			return `No, ${firstName} should not go outside.`;
 		}
 	}
 	catch(err){
