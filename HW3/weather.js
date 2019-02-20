@@ -37,7 +37,7 @@ let shouldTheyGoOutside = async function(firstName,lastName){
 		}
 	}
 	catch(err){
-		console.error(err);
+		console.log(`Error: ${err}`);
 	}
 }
-shouldTheyGoOutside("Scotty","Barajaz");
+

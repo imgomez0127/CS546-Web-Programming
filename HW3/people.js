@@ -5,7 +5,7 @@ async function getPeople(){
 		return data;
 	}
 	catch(err){
-		console.error("Problem when interfacing with database");
+		console.error(`Problem interfacing with database with Error: ${err}`);
 	}
 }
 let personToName = (person) => {
@@ -48,7 +48,19 @@ let findPerson = function (firstName,lastName,peopleArr){
 			foundPerson =  person;
 		}
 	});
-	if(foundPerson == undefined){
+	if(foundPerson === undefined){
+		throw "Person not found";
+	}
+	return foundPerson;
+}
+let findPersonFromSSN = function(ssn,peopleArr){
+	let foundPerson = undefined;
+	peopleArr.forEach(function(person){
+		if(person["ssn"] === ssn){
+			foundPerson =  person;
+		}
+	});
+	if(foundPerson === undefined){
 		throw "Person not found";
 	}
 	return foundPerson;
@@ -144,12 +156,15 @@ let firstNameMetrics = async function (){
 		for(let i = 0; i < size; ++i){
 			nameArr[i] = personToFirstName(people[i]);
 		}	
-		console.log(`totalLetters: sum of all the letters in all the firstNames: ${countLetters(nameArr)}`);
-		console.log(`totalVowels: sum of all the vowels in all the firstNames: ${countVowels(nameArr)}`);
-		console.log(`totalConsonants: sum of all the consonants in all the firstNames: ${countConsonants(nameArr)}`);
-		console.log(`longestName: the longest firstName in the list: ${findLongestName(nameArr)}`);
-		console.log(`shortestName: the shortest firstName in the list: ${findShortestName(nameArr)}`);
-
+		metrics = {
+			totalLetters: `sum of all the letters in all the firstNames: ${countLetters(nameArr)}`,
+			totalVowels: `sum of all the vowels in all the firstNames: ${countVowels(nameArr)}`,
+			totalConsonants: `sum of all the consonants in all the firstNames: ${countConsonants(nameArr)}`,
+			longestName: `the longest firstName in the list: ${findLongestName(nameArr)}`,
+			shortestName: `the shortest firstName in the list: ${findShortestName(nameArr)}`
+		}
+		console.log(metrics);
+		return metrics;
 	}
 	catch(err){
 		console.error(err);
@@ -161,6 +176,6 @@ module.exports = {
     studentId: "10428821",
 	getPeople,	
 	personToName,
-	findPerson
-
+	findPerson,
+	findPersonFromSSN
     };
