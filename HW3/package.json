@@ -1,0 +1,14 @@
+{
+  "name": "hw3",
+  "version": "1.0.0",
+  "description": "lab 3 module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ian Gomez 10428821",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
