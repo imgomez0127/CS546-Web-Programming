@@ -4,7 +4,7 @@
   "description": "lab 3 module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "author": "Ian Gomez 10428821",
   "license": "ISC",

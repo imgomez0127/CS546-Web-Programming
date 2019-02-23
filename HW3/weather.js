@@ -1,10 +1,21 @@
+// "I pledge my honor that I have abided by the Stevens honor system" - igomez1 Ian Gomez 10428821
 let axios = require("axios");
 let peopleMod = require("./people.js")
-let getWeather = async function (){
+let getWeather = async function ()
+{
 	const {data} = await axios.get("https://gist.githubusercontent.com/robherley/1b950dc4fbe9d5209de4a0be7d503801/raw/eee79bf85970b8b2b80771a66182aa488f1d7f29/weather.json");
 	return data;
 }
-let findRegion = function(zip,weatherArr){
+let findRegion = function(zip,weatherArr)
+{
+	if(typeof zip !== "string")
+	{
+		throw "Either zip is undefined or is not of type string";
+	}		
+	if(Object.prototype.toString.call(weatherArr) !== "[object Array]")
+	{
+		throw "Either weatherArr is undefined or is not of type array";
+	}
 	let foundRegion = undefined;
 	weatherArr.forEach(function(region){
 		if(region["zip"] === zip){
@@ -20,24 +31,29 @@ let findRegion = function(zip,weatherArr){
 }
 let shouldTheyGoOutside = async function(firstName,lastName){
 	try{
-		if(firstName === undefined || lastName === undefined){
-			throw "Either the firstName or the lastName are undefined";
+		if(typeof firstName !== "string" || typeof lastName !== "string")
+		{
+			throw "Either the firstName or the lastName are not of type string";
 		}
 		let weatherArr = await getWeather();	
 		let people = await peopleMod.getPeople();
 		let person = peopleMod.findPerson(firstName,lastName,people); 			
 		let region = findRegion(person["zip"],weatherArr); 
 		if(region["temp"] >= 34){
-			console.log(`Yes, ${firstName} should go outside.`);
 			return `Yes, ${firstName} should go outside.`;
 		}
 		else{
-			console.log(`No, ${firstName} should not go outside.`);
 			return `No, ${firstName} should not go outside.`;
 		}
 	}
 	catch(err){
-		console.log(`Error: ${err}`);
 	}
 }
-
+module.exports = {
+	firstName: "Ian",
+    lastName: "Gomez",
+    studentId: "10428821",
+	getWeather,
+	findRegion,
+	shouldTheyGoOutside
+}
