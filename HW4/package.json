@@ -1,0 +1,14 @@
+{
+  "name": "hw4",
+  "version": "1.0.0",
+  "description": "A Hw about interfacing with mongodb",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ian Gomez 10428821",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.1.13"
+  }
+}

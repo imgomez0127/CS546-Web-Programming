@@ -58,7 +58,7 @@ let getPersonById = async function (id)
 		return personToName(peopleArr[id-1]);
 	}
 	catch(err){
-		console.error(err);
+		console.log(err);
 	}	
 }
 
@@ -238,7 +238,7 @@ let firstNameMetrics = async function ()
 		console.error(err);
 	}
 }
-
+getPersonById();
 module.exports = {
     firstName: "Ian",
     lastName: "Gomez",
