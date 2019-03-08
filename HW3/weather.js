@@ -30,8 +30,7 @@ let findRegion = function(zip,weatherArr)
 	}
 }
 let shouldTheyGoOutside = async function(firstName,lastName){
-	try{
-		if(typeof firstName !== "string" || typeof lastName !== "string")
+	if(typeof firstName !== "string" || typeof lastName !== "string")
 		{
 			throw "Either the firstName or the lastName are not of type string";
 		}
@@ -45,9 +44,6 @@ let shouldTheyGoOutside = async function(firstName,lastName){
 		else{
 			return `No, ${firstName} should not go outside.`;
 		}
-	}
-	catch(err){
-	}
 }
 module.exports = {
 	firstName: "Ian",

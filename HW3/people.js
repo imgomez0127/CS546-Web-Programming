@@ -2,14 +2,9 @@
 let axios = require("axios");
 async function getPeople()
 {
-	try
-	{
 		const { data } = await axios.get("https://gist.githubusercontent.com/robherley/5112d73f5c69a632ef3ae9b7b3073f78/raw/24a7e1453e65a26a8aa12cd0fb266ed9679816aa/people.json");
 		return data;
-	}
-	catch(err){
-		console.error(err);
-	}
+	
 }
 
 let personToName = function (person) 
@@ -50,16 +45,11 @@ let personToLastName = function (person)
 
 let getPersonById = async function (id) 
 { 
-	try{
 		if(typeof id !== "number" || id > 500 || id < 1){
 			throw "This is not a valid person ID please insert a number in between 1 and 500";
 		}
 		let peopleArr = await getPeople();
 		return personToName(peopleArr[id-1]);
-	}
-	catch(err){
-		console.log(err);
-	}	
 }
 
 let findPerson = function (firstName,lastName,peopleArr)
@@ -103,8 +93,6 @@ let findPersonFromSSN = function(ssn,peopleArr)
 }
 
 let lexIndex = async function (index){
-	try
-	{	
 		if(typeof index !== "number" || index > 499 || index < 0 ){
 			throw "This is not a valid index for this People dataset";
 		}
@@ -125,12 +113,7 @@ let lexIndex = async function (index){
 			}
 		}
 		return person;
-	}
-	catch(err)
-	{
-		console.error(err);
-	}
-	
+		
 }
 let countLetters = function(nameArr)
 {
@@ -216,29 +199,21 @@ let findShortestName = function(nameArr)
 
 let firstNameMetrics = async function ()
 {
-	try
-	{
-		people = await getPeople();
+			people = await getPeople();
 		let size = people.length;
 		let nameArr = Array(size);
 		for(let i = 0; i < size; ++i){
 			nameArr[i] = personToFirstName(people[i]);
 		}	
 		metrics = {
-			totalLetters: `sum of all the letters in all the firstNames: ${countLetters(nameArr)}`,
-			totalVowels: `sum of all the vowels in all the firstNames: ${countVowels(nameArr)}`,
-			totalConsonants: `sum of all the consonants in all the firstNames: ${countConsonants(nameArr)}`,
-			longestName: `the longest firstName in the list: ${findLongestName(nameArr)}`,
-			shortestName: `the shortest firstName in the list: ${findShortestName(nameArr)}`
+			totalLetters: countLetters(nameArr),
+			totalVowels: countVowels(nameArr),
+			totalConsonants: countConsonants(nameArr),
+			longestName: findLongestName(nameArr),
+			shortestName: findShortestName(nameArr)
 		}
 		return metrics;
 	}
-	catch(err)
-	{
-		console.error(err);
-	}
-}
-getPersonById();
 module.exports = {
     firstName: "Ian",
     lastName: "Gomez",

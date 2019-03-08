@@ -47,7 +47,6 @@ let findJobFromIP = function(ip,jobArr){
 	return job;
 }
 let whereDoTheyWork = async function(firstName,lastName){
-	try{
 		if(typeof firstName !== "string" || typeof lastName !== "string")
 		{
 			throw "Either the firstName or the lastName are not of type string";
@@ -58,16 +57,9 @@ let whereDoTheyWork = async function(firstName,lastName){
 		let job = findJobFromSSN(person["ssn"],jobArr);
 		return `${person["firstName"]} ${person["lastName"]} - ${job["jobTitle"]} at ${job["company"]}. ${(job["willBeFired"]) ? "They will be fired" : "They will not be fired"}`;
 }
-	catch(err)
-	{
-		console.error(err);
-	}
-}
 let findTheHacker = async function(ip)
 	{
-	try
-	{
-		if(typeof ip !== "string")
+			if(typeof ip !== "string")
 		{
 			throw "Ip address is not of type string";
 		}
@@ -77,10 +69,6 @@ let findTheHacker = async function(ip)
 		let person = peopleMod.findPersonFromSSN(job["ssn"],peopleArr);
 		return `${peopleMod.personToName(person)} is the hacker!`;
 	}
-	catch(err){
-		console.error(err);
-	}
-}
 let test = async function(){
 	let testvar = await findTheHacker("6969");
 	console.log(testvar);

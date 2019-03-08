@@ -1,4 +1,3 @@
-// Daniel Shapiro
 // "I pledge my honor that I have abided by the Stevens Honor System." - Daniel Shapiro
 
 const people = require("./people");
