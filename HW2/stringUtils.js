@@ -4,7 +4,7 @@ const capitalize = function capitalize(string){
 		throw "The inputted argument is not of type string";
 	}
 	let newStr = string.charAt(0).toUpperCase();
-	for(let i = 0; i < string.length; ++i){
+	for(let i = 1; i < string.length; ++i){
 		newStr += string.charAt(i).toLowerCase(); 
 
 	}

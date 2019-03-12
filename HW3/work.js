@@ -69,10 +69,6 @@ let findTheHacker = async function(ip)
 		let person = peopleMod.findPersonFromSSN(job["ssn"],peopleArr);
 		return `${peopleMod.personToName(person)} is the hacker!`;
 	}
-let test = async function(){
-	let testvar = await findTheHacker("6969");
-	console.log(testvar);
-}
 module.exports = {
 	firstName: "Ian",
     lastName: "Gomez",

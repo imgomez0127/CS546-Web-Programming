@@ -65,3 +65,47 @@ try{
 catch(e){
 	console.log("smush has successfully failed the test case and produced the error '" + e.toString() + "'");
 }
+try{
+    const helloworld = stringUtils.capitalize("HELLOWORLD");
+    if(helloworld === "Helloworld"){
+        console.log("capitalize has passed successfully");
+    }
+    else{
+        console.log("capitalize has failed");
+    }
+}
+catch(e){
+    console.log("capitalize has failed the test case and produced the error '" + e.toString() + "'");
+}
+try{
+    const HELLOWORLD = stringUtils.capitalize("helloworld");
+    if(HELLOWORLD === "Helloworld"){
+        console.log("capitalize has passed successfully");
+    }
+    else{
+        console.log("capitalize has failed");
+    }
+}
+catch(e){
+    console.log("capitalize has failed the test case and produced the error '" + e.toString() + "'");
+}
+try{
+    const has1 = stringUtils.capitalize("h");
+    if(has1 === "H"){
+        console.log(has1);
+        console.log("capitalize has passed successfully");
+    }
+    else{
+        console.log("capitalize has failed");
+    }
+}
+catch(e){
+    console.log("capitalize has failed the test case and produced the error '" + e.toString() + "'");
+}
+try{
+    const shouldFail = stringUtils.capitalize();
+    console.log("capitalize failed unsuccessfully");
+}
+catch(e){
+    console.log("capitalize failed successfully");
+}
