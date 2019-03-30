@@ -49,6 +49,15 @@ let getPersonById = async function (id)
 			throw "This is not a valid person ID please insert a number in between 1 and 500";
 		}
 		let peopleArr = await getPeople();
+		return peopleArr[id-1];
+}
+
+let getPersonNameById = async function (id) 
+{ 
+		if(typeof id !== "number" || id > 500 || id < 1){
+			throw "This is not a valid person ID please insert a number in between 1 and 500";
+		}
+		let peopleArr = await getPeople();
 		return personToName(peopleArr[id-1]);
 }
 
@@ -223,6 +232,7 @@ module.exports = {
 	personToFirstName,
 	personToLastName,
 	getPersonById,
+    getPersonNameById,
 	findPerson,
 	findPersonFromSSN,
 	lexIndex,	

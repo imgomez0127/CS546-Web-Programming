@@ -10,10 +10,10 @@ app.use("/public", static);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-app.engine("handlebars", exphbs({defaultLayout : "base"});
+app.engine("handlebars", exphbs({defaultLayout : "base"}));
 app.set("view engine", "handlebars");
 
-configRoute(app);
+configRoutes(app);
 
 app.listen(3000, () => {
     console.log("Running on http://localhost:3000");
