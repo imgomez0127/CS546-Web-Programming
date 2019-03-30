@@ -1,0 +1,8 @@
+<h1> People Found </h1>
+<h2> Supplied Name: {{personName}} </h2>
+    <ul> 
+        {{#each person}}
+            <li> <a href = "/details/{{id}}"> {{name}} </a> </li>
+        {{/each}}
+    </ul>
+
