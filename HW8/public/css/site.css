@@ -1,0 +1,68 @@
+html,body{
+    font-size:14pt;
+    font-family:serif;
+}
+.error{
+    color:red;
+}
+.content{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.innerContent{
+    display:block;
+}
+#form{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.title{
+    font-size:35pt;
+}
+#about{
+    text-align:center;
+}
+#formLabel{
+    color:blue;
+}
+#button{
+    border:1px solid black;
+    border-radius: 5px;
+    background-color:white;
+    height:1.25rem;
+}
+#formInput{
+    border:5 px solid black;
+    border-radius: 10px;
+    background-color:white;
+    height:1.25rem;
+}
+.name{
+    text-decoration:none;
+}
+.suppliedName{
+    font-size:25pt;
+}
+#id{
+    color:red;
+}
+#firstName{
+    color:blue;
+}
+#lastName{
+    color:purple;
+}
+#address{
+    color:green;
+}
+#zip{
+    color:pink;
+}
+#phone{
+    color:lightblue;
+}
+#ssn{
+    color:grey;
+}

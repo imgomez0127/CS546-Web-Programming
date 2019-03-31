@@ -1,9 +1,12 @@
-<h1> People Finder </h1>
+<div class="content">
+<h1 class="title"> People Finder </h1>
 <main>
-<p>This website finds people that are listed in our database. It allows you to search for a name, and will output a list of at most 20 people. These people will be the closes match to your input. It then allows you to see more details about this person if you click on their name
+<p id="about">This website finds people that are listed in our database. It allows you to search for a name, and will output a list of at most 20 people. These people will be the closes match to your input. It then allows you to see more details about this person if you click on their name
 </p>
-<form method = "POST" action="/search">
-    <label>Input Name</label>
-    <input type="text" name="personName">
-    <button type="Submit" value="Submit"> Submit</button>
+<form method = "POST" action="/search" id="form">
+    <label id="formLabel">Input Name</label>
+    <input type="text" name="personName" id="formInput">
+    <button type="Submit" value="Submit" id="button"> Submit</button>
 </form>
+</main>
+</div>
