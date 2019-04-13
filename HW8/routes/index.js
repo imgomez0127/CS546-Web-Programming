@@ -12,7 +12,7 @@ router.get("/", (req,res) => {
 });
 router.post("/search", async (req,res) => {
     if(!req.body.personName){
-        res.status(400).render("templates/Error");
+        res.status(400).render("templates/Error", {title:"People Found"});
         return;
     }
     try{
@@ -51,7 +51,7 @@ router.get("/details/:id",async (req,res) => {
 const constructorMethod = app => {
     app.use("/", router);
     app.use("*", (req,res) => {
-        res.redirect("/");
+        res.sendStatus(404);
     });
 };
 
