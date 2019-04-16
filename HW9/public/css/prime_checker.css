@@ -3,7 +3,9 @@ html,body{
     font-family:serif;
 }
 .error{
-    color:red;
+    border:1px solid red;
+    background-color: #ffece6;
+    text-align:center;
 }
 .content{
     display:flex;
@@ -13,13 +15,12 @@ html,body{
 .innerContent{
     display:block;
 }
-#form{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-}
 .title{
     font-size:35pt;
+}
+.formBorder{
+    border:1px solid black;
+    padding-bottom:10%;
 }
 #about{
     text-align:center;
@@ -33,36 +34,18 @@ html,body{
     background-color:white;
     height:1.25rem;
 }
-#formInput{
+#number{
     border:5 px solid black;
     border-radius: 10px;
     background-color:white;
     height:1.25rem;
 }
-.name{
-    text-decoration:none;
+li{
+    background-color:black;
 }
-.suppliedName{
-    font-size:25pt;
+.is-prime{
+    color: #00E676;
 }
-#id{
-    color:red;
-}
-#firstName{
-    color:blue;
-}
-#lastName{
-    color:purple;
-}
-#address{
-    color:green;
-}
-#zip{
-    color:pink;
-}
-#phone{
-    color:lightblue;
-}
-#ssn{
-    color:grey;
+.not-prime{
+    color: #FF3D00;
 }

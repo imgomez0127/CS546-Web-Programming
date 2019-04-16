@@ -1,9 +1,10 @@
 //"I pledge my honor that I have abided by the Stevens honor system"-igomez1 10428821 Ian Gomez
 const express = require("express");
 const router = express.Router();
+const path = require("path");
 router.get("/", (req,res) => {
     try{
-        res.render("templates/index",{title: "Prime Number Checker"});
+        res.sendFile(path.resolve("public/base.html"));
     }
     catch(e){
         res.sendStatus(500);
