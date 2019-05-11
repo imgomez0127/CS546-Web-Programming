@@ -35,7 +35,7 @@ var routeAuthenticator = function(req,res,next){
             next();
         }
         else{
-            res.status(403).render("templates/Invalid_Private_Access");
+            res.status(403).render("templates/Invalid_Private_Access",{title:"Restricted"});
         }
     }
     else{
