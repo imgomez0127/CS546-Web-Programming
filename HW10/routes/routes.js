@@ -9,7 +9,7 @@ let findUserBySession = function(sessionID){
     let output = {};
     for(let user in users){
         users[user]["validSessionAccessors"].forEach(function(validID){
-            if(validID == sessionID){ 
+            if(validID === sessionID){ 
                 output = users[user];
                 output["username"] = user;
             }
@@ -61,7 +61,7 @@ router.get("/private",(req,res) => {
     try{
         let user = findUserBySession(req.session.id);
         let {_id,firstName,lastName,profession,bio,...rest} = user;
-        res.render("templates/Private_Page",{"firstName":firstName,"lastName":lastName,"profession":profession,"bio":bio,username:user["username"]});
+        res.render("templates/Private_Page",{"firstName":firstName,"lastName":lastName,"profession":profession,"bio":bio,username:user["username"],title:"Private"});
     }catch(e){
         res.sendStatus(500);
     }
@@ -69,8 +69,19 @@ router.get("/private",(req,res) => {
 
 router.get("/logout", (req,res) => {
     try{
-        req.session.destroy();    
-        res.render("templates/Logout");
+        for(let username in users){ 
+            user = users[username];
+            user["validSessionAccessors"] = user["validSessionAccessors"].filter(function(validID){
+                return validID !== req.session.id; 
+            });
+        }
+        req.session.destroy(function(err){
+            if(err){
+                throw err;
+            }   
+        });
+        
+        res.render("templates/Logout",{title:"Logout"});
     }catch(e){
         res.sendStatus(500);
     }
